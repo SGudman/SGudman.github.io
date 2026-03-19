@@ -48,14 +48,14 @@
     .site {
       max-width: 640px;
       margin: 0 auto;
-      padding: 48px 0 80px;
+      padding: 24px 0 80px;
     }
 
     nav {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
-      margin-bottom: 56px;
+      margin-bottom: 24px;
       font-size: 16px;
     }
 
@@ -244,6 +244,10 @@
       margin: 0 0 40px;
     }
 
+    @media (max-width: 768px) {
+      .print-btn { display: none; }
+    }
+
     @media print {
       nav .links, .print-btn { display: none; }
       body { background: #fff; color: #000; }
@@ -260,15 +264,17 @@
   <div class="site">
 
     <nav>
-      <div class="links" style="margin-left: auto;">
-        <button onclick="toggleTheme()" title="Toggle dark/light (D)">◑</button>
+      <div class="links">
         <button class="print-btn" onclick="window.print()">Save PDF</button>
+        <button onclick="toggleTheme()" title="Toggle dark/light (D)">◑</button>
       </div>
     </nav>
 
     <h1>Dmitry Bashko</h1>
     <div class="contact-line" style="margin-bottom: 10px;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px; margin-top: -2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Poznań, Poland
+      <a href="https://maps.google.com/?q=Poznan,Poland" target="_blank" style="text-decoration: none; color: inherit;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px; margin-top: -2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Poznań, Poland
+      </a>
     </div>
     <p class="tagline">Operations · Customer Success · B2B SaaS</p>
 
