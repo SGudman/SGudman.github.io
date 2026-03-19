@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dmitry Bashko</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><style>text{font-family:system-ui,sans-serif;font-weight:500;fill:%23100f0f}@media(prefers-color-scheme:dark){text{fill:%23cecdc3}}</style><text x='4' y='26' font-size='26'>B</text></svg>">
+  <style>
+    :root {
+      --bg: #fffcf0;
+      --text: #100f0f;
+      --muted: #6f6e69;
+      --border: #e6e4d9;
+      --link: #100f0f;
+    }
+
+    [data-theme="dark"] {
+      --bg: #100f0f;
+      --text: #cecdc3;
+      --muted: #878580;
+      --border: #282726;
+      --link: #cecdc3;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #100f0f;
+        --text: #cecdc3;
+        --muted: #878580;
+        --border: #282726;
+        --link: #cecdc3;
+      }
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { transition: background 0.3s, color 0.3s; }
+
+    body {
+      font-family: -apple-system, "system-ui", Inter, "IBM Plex Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--text);
+      background: var(--bg);
+      padding: 0 24px;
+    }
+
+    .site {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 48px 0 80px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 56px;
+      font-size: 16px;
+    }
+
+    nav .name {
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    nav .links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    nav .links a, nav .links button {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 15px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 0;
+    }
+
+    nav .links a:hover, nav .links button:hover {
+      color: var(--text);
+    }
+
+    h1 {
+      font-size: 31.6px;
+      font-weight: 500;
+      line-height: 1.25;
+      letter-spacing: -0.63px;
+      margin-bottom: 8px;
+    }
+
+    .tagline {
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .contact-line {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .contact-line a {
+      color: var(--muted);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--border);
+    }
+
+    .contact-line a:hover { color: var(--text); }
+
+    section { margin-bottom: 40px; }
+
+    h2 {
+      font-size: 20.76px;
+      font-weight: 500;
+      letter-spacing: -0.31px;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    p {
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+
+    .job { margin-bottom: 28px; }
+
+    .job-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .job-title {
+      font-weight: 500;
+      font-size: 17px;
+    }
+
+    .job-period {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .job-company {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .job-company a {
+      color: var(--muted);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--border);
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      font-size: 16px;
+      color: var(--text);
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 6px;
+      line-height: 1.55;
+    }
+
+    ul li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: var(--muted);
+    }
+
+    .edu-list { display: grid; gap: 8px; }
+
+    .edu-item {
+      font-size: 16px;
+      color: var(--text);
+    }
+
+    .edu-item a {
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--border);
+    }
+
+    .edu-year {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .skills-list { display: grid; gap: 10px; }
+
+    .skill-row {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .skill-label {
+      color: var(--muted);
+      font-size: 14px;
+      display: block;
+      margin-bottom: 1px;
+    }
+
+    .interests-text {
+      font-size: 16px;
+      color: var(--text);
+    }
+
+    .print-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: var(--muted);
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: inherit;
+      padding: 0;
+    }
+
+    .print-btn:hover { color: var(--text); }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 0 40px;
+    }
+
+    @media print {
+      nav .links, .print-btn { display: none; }
+      body { background: #fff; color: #000; }
+      .site { padding: 0; }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 26px; }
+      .job-meta { flex-direction: column; gap: 2px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site">
+
+    <nav>
+      <div class="links" style="margin-left: auto;">
+        <button onclick="toggleTheme()" title="Toggle dark/light (D)">◑</button>
+        <button class="print-btn" onclick="window.print()">Save PDF</button>
+      </div>
+    </nav>
+
+    <h1>Dmitry Bashko</h1>
+    <div class="contact-line" style="margin-bottom: 10px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px; margin-top: -2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Poznań, Poland
+    </div>
+    <p class="tagline">Operations · Customer Success · B2B SaaS</p>
+
+    <div class="contact-line" style="margin-bottom: 32px;">
+      <a href="mailto:dmitry.bashko.en@gmail.com">dmitry.bashko.en@gmail.com</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.linkedin.com/in/dmitry-bashko/" target="_blank">LinkedIn</a>
+      &nbsp;·&nbsp;
+      <a href="https://t.me/tryingthisid" target="_blank">Telegram</a>
+    </div>
+
+    <section>
+      <h2>Summary</h2>
+      <p>Operations professional with 11+ years of experience founding and managing international businesses in transport and logistics. After relocating to Poland in 2023, transitioned into a remote role at Teleperformance — building a track record in a new market while maintaining the discipline and performance standards held as a business owner.</p>
+      <p>Actively leverage AI tools as a core part of my daily workflow — significantly accelerating research, planning, and execution. Fast learner with a demonstrated ability to acquire new skills rapidly under pressure. Seeking a client-facing or operations role in a B2B SaaS environment.</p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Target Roles</h2>
+      <p style="font-size: 16px;">Customer Success Manager · Account Manager · Technical Account Manager · Implementation Manager · Knowledge Base Manager · Partnerships Manager</p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Experience</h2>
+
+      <div class="job">
+        <div class="job-meta">
+          <span class="job-title">Remote Consecutive Interpreter</span>
+          <span class="job-period">Mar 2024 – Feb 2026</span>
+        </div>
+        <div class="job-company"><a href="https://www.teleperformance.com" target="_blank">Teleperformance</a> · Remote · English–Russian</div>
+        <ul>
+          <li>Consecutive phone interpretation for Russian-speaking clients in the US and UK; 90%+ medical calls</li>
+          <li>Consistently ranked top 3–4 out of ~80 interpreters by volume; ranked #1 on more than 8 occasions</li>
+          <li>Self-directed monthly workload of 250–300 hours, sometimes exceeding 1,000 interactions/month</li>
+          <li>Awarded Professional Interpreter Certificate (Aug 2025) — achieved in ~1 year, an exceptionally rare result</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-meta">
+          <span class="job-title">Founder & Managing Director</span>
+          <span class="job-period">Jul 2011 – Aug 2023</span>
+        </div>
+        <div class="job-company">Sesco & TRTS-Plus · International transport and logistics · Up to 15 employees</div>
+        <ul>
+          <li>Built full business operations from inception — sales, finance, hiring, client relations, logistics</li>
+          <li>Managed up to 15 people; responsible for hiring, onboarding, and performance</li>
+          <li>Maintained long-term relationships with key accounts across Europe</li>
+          <li>Oversaw financial planning, P&L, and operational cost optimization</li>
+          <li>Designed and documented internal workflows across all business functions</li>
+          <li>Peak annual revenue ~$1M, up to 100 orders/month</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Education</h2>
+      <div class="edu-list">
+        <div class="edu-item"><a href="https://www.sbmt.bsu.by" target="_blank">BSU Institute of Business</a> — Financial Management <span class="edu-year">2016–2017</span></div>
+        <div class="edu-item"><a href="http://abiturient.mitso.by" target="_blank">International University "MITSO"</a> — Logistics <span class="edu-year">2009–2014</span></div>
+        <div class="edu-item"><a href="http://www.mcb.by" target="_blank">Minsk College of Business</a> — Accounting, Analysis and Control <span class="edu-year">2006–2009</span></div>
+      </div>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Additional Education</h2>
+      <div class="edu-list">
+        <div class="edu-item"><a href="https://ampm.by" target="_blank">Alexei Minkiewicz School of Management</a> — Project Management <span class="edu-year">2016</span></div>
+        <div class="edu-item"><a href="https://www.sbmt.bsu.by" target="_blank">BSU Institute of Business</a> — Financial Director Program <span class="edu-year">2014</span></div>
+        <div class="edu-item">FIATA Diploma — Transport Logistics and International Freight Forwarding <span class="edu-year">2014</span></div>
+      </div>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Skills</h2>
+      <div class="skills-list">
+        <div class="skill-row"><span class="skill-label">Languages</span>English C1 · Polish B1 · Russian & Belarusian native · Ukrainian passive</div>
+        <div class="skill-row"><span class="skill-label">CRM & Sales</span>Zoho · Salesforce · HubSpot</div>
+        <div class="skill-row"><span class="skill-label">Productivity</span>Microsoft Office · Google Workspace · Notion · Obsidian · Airtable · Miro</div>
+        <div class="skill-row"><span class="skill-label">Project & Collaboration</span>Jira · Confluence · Asana · Slack · Teams · Zoom · Loom</div>
+        <div class="skill-row"><span class="skill-label">AI</span>Claude Code · OpenClaw — daily professional use across research, planning, and execution</div>
+        <div class="skill-row"><span class="skill-label">Technical</span>SSH · VPS administration · VPN setup · self-hosted services · GitHub · terminal/CLI</div>
+      </div>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Interests</h2>
+      <p class="interests-text">Technology & AI · Open source · Personal Knowledge Management · Cycling · History · Reading · Economics · Traveling</p>
+    </section>
+
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+
+    // Restore saved theme
+    const saved = localStorage.getItem('theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+
+    // Toggle with D key
+    document.addEventListener('keydown', e => {
+      if (e.key === 'd' || e.key === 'D') toggleTheme();
+    });
+  </script>
+</body>
+</html>
